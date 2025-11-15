@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const dummyRooms = [
     {
@@ -21,12 +21,24 @@ const dummyRooms = [
 ];
 
 const RoomDetail: React.FC = () => {
-    const { id } = useParams();
+    const { id } = useParams<{ id: string }>();
+    const navigate = useNavigate();
+
     const room = dummyRooms.find((r) => r.id === Number(id));
 
     if (!room) {
         return <p className="text-center mt-20 text-xl">Room not found.</p>;
     }
+
+    const handleBookNow = () => {
+        navigate("/booking", {
+            state: {
+                roomId: room.id,
+                roomName: room.name,
+                price: room.price,
+            },
+        });
+    };
 
     return (
         <div className="pt-24 pb-16 px-6 max-w-6xl mx-auto">
@@ -51,7 +63,9 @@ const RoomDetail: React.FC = () => {
                 </div>
             </div>
 
-            <button className="bg-slate-900 text-white mt-10 px-10 py-3 rounded-lg text-lg font-medium hover:bg-slate-700 transition">Book Now</button>
+            <button onClick={handleBookNow} className="bg-slate-900 text-white mt-10 px-10 py-3 rounded-lg text-lg font-medium hover:bg-slate-700 transition">
+                Book Now
+            </button>
         </div>
     );
 };
