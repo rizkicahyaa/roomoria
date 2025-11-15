@@ -19,8 +19,9 @@ const BookingForm: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-
-        navigate("/booking-summary", { state: formData });
+        navigate("/booking-summary", {
+            state: { bookingData: formData },
+        });
     };
 
     return (

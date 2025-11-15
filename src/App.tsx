@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import RoomList from "./components/RoomList";
 import RoomDetail from "./components/RoomDetail";
 import BookingForm from "./components/BookingForm";
+import BookingSummary from "./components/BookingSummary";
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                     />
                     <Route path="/room/:id" element={<RoomDetail />} />
                     <Route path="/booking" element={<BookingForm />} />
+                    <Route path="/booking-summary" element={<BookingSummary />} />
                 </Routes>
             </div>
         </>
