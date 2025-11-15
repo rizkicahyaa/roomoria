@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface Room {
     id: number;
@@ -64,7 +65,9 @@ const RoomList: React.FC = () => {
 
                             <p className="text-slate-600 mt-2 mb-4">Rp {room.price.toLocaleString()} / night</p>
 
-                            <button className="w-full bg-slate-900 text-white py-2 rounded-lg font-medium hover:bg-slate-700 transition">View Details</button>
+                            <Link to={`/room/${room.id}`}>
+                                <button className="w-full bg-slate-900 text-white py-2 rounded-lg font-medium hover:bg-slate-700 transition">View Details</button>
+                            </Link>
                         </div>
                     </div>
                 ))}
