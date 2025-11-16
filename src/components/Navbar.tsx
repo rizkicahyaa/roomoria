@@ -1,18 +1,50 @@
 import React, { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar: React.FC = () => {
     const [open, setOpen] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const scrollToSection = (sectionId: string) => {
+        if (location.pathname !== "/") {
+            navigate("/");
+            setTimeout(() => {
+                document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+            }, 200);
+        } else {
+            document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+        }
+    };
 
     return (
         <nav className="w-full bg-slate-900 text-white shadow-md fixed top-0 z-50">
             <div className="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
-                <h1 className="text-2xl font-bold tracking-wide">Roomoria</h1>
+                <Link to="/" className="text-2xl font-bold tracking-wide">
+                    Roomoria
+                </Link>
 
                 <ul className="hidden md:flex gap-8 text-lg">
-                    <li className="hover:text-slate-300 cursor-pointer">Home</li>
-                    <li className="hover:text-slate-300 cursor-pointer">Rooms</li>
-                    <li className="hover:text-slate-300 cursor-pointer">Booking</li>
-                    <li className="hover:text-slate-300 cursor-pointer">About</li>
+                    <li>
+                        <Link to="/" className="hover:text-slate-300">
+                            Home
+                        </Link>
+                    </li>
+                    <li>
+                        <button onClick={() => scrollToSection("rooms")} className="hover:text-slate-300">
+                            Rooms
+                        </button>
+                    </li>
+                    <li>
+                        <Link to="/booking" className="hover:text-slate-300">
+                            Booking
+                        </Link>
+                    </li>
+                    <li>
+                        <button onClick={() => scrollToSection("about")} className="hover:text-slate-300">
+                            About
+                        </button>
+                    </li>
                 </ul>
 
                 <button className="md:hidden" onClick={() => setOpen(!open)}>
@@ -24,10 +56,41 @@ const Navbar: React.FC = () => {
 
             {open && (
                 <ul className="md:hidden bg-slate-800 py-4 space-y-4 text-center text-lg">
-                    <li className="hover:text-slate-300 cursor-pointer">Home</li>
-                    <li className="hover:text-slate-300 cursor-pointer">Rooms</li>
-                    <li className="hover:text-slate-300 cursor-pointer">Booking</li>
-                    <li className="hover:text-slate-300 cursor-pointer">About</li>
+                    <li>
+                        <Link to="/" className="hover:text-slate-300" onClick={() => setOpen(false)}>
+                            Home
+                        </Link>
+                    </li>
+
+                    <li>
+                        <button
+                            onClick={() => {
+                                scrollToSection("rooms");
+                                setOpen(false);
+                            }}
+                            className="hover:text-slate-300"
+                        >
+                            Rooms
+                        </button>
+                    </li>
+
+                    <li>
+                        <Link to="/booking" onClick={() => setOpen(false)} className="hover:text-slate-300">
+                            Booking
+                        </Link>
+                    </li>
+
+                    <li>
+                        <button
+                            onClick={() => {
+                                scrollToSection("about");
+                                setOpen(false);
+                            }}
+                            className="hover:text-slate-300"
+                        >
+                            About
+                        </button>
+                    </li>
                 </ul>
             )}
         </nav>
