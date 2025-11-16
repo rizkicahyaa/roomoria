@@ -7,6 +7,7 @@ import RoomDetail from "./components/RoomDetail";
 import BookingForm from "./components/BookingForm";
 import BookingSummary from "./components/BookingSummary";
 import About from "./components/About";
+import Facilities from "./components/Facilities";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                             <>
                                 <Hero />
                                 <RoomList />
+                                <Facilities />
                                 <About />
                             </>
                         }
