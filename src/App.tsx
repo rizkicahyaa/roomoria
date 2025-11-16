@@ -8,6 +8,7 @@ import BookingForm from "./components/BookingForm";
 import BookingSummary from "./components/BookingSummary";
 import About from "./components/About";
 import Facilities from "./components/Facilities";
+import Footer from "./components/Footer";
 
 function App() {
     return (
@@ -31,6 +32,7 @@ function App() {
                     <Route path="/booking-summary" element={<BookingSummary />} />
                 </Routes>
             </div>
+            <Footer />
         </>
     );
 }
