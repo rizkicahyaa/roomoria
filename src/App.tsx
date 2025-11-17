@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 
 function App() {
     return (
-        <>
+        <div className="bg-slate-950">
             <Navbar />
             <div className="pt-16">
                 <Routes>
@@ -33,7 +33,7 @@ function App() {
                 </Routes>
             </div>
             <Footer />
-        </>
+        </div>
     );
 }
 

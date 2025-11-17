@@ -36,18 +36,30 @@ const Facilities: React.FC = () => {
     ];
 
     return (
-        <section id="facilities" className="w-full bg-slate-50 py-20">
-            <div className="max-w-7xl mx-auto px-6">
-                <h2 className="text-4xl font-bold text-center text-slate-900 mb-14">
-                    Our <span className="text-blue-600">Facilities</span>
-                </h2>
+        <section id="facilities" className="relative py-24 bg-slate-950 overflow-hidden">
+            <div
+                className="absolute inset-0 opacity-70"
+                style={{ background: "radial-gradient(circle, rgba(255,215,128,0.1), transparent 45%)" }}
+            />
+            <div className="relative max-w-7xl mx-auto px-6 text-center text-white space-y-12">
+                <div>
+                    <p className="uppercase tracking-[0.5em] text-xs text-amber-300/80 mb-4">Signature Privileges</p>
+                    <h2 className="text-4xl font-light">
+                        Crafted Services for a <span className="font-semibold text-amber-300">Grand Stay</span>
+                    </h2>
+                </div>
 
-                <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {items.map((item, index) => (
-                        <div key={index} className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition cursor-pointer text-center">
-                            <div className="flex justify-center mb-4 text-blue-600">{item.icon}</div>
-                            <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
-                            <p className="text-slate-600">{item.desc}</p>
+                        <div
+                            key={index}
+                            className="group bg-white/5 border border-white/10 px-8 py-10 rounded-3xl backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.45)] transition hover:-translate-y-2 hover:border-amber-300/40"
+                        >
+                            <div className="flex justify-center mb-6 text-amber-300 group-hover:text-amber-200 transition">
+                                {item.icon}
+                            </div>
+                            <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                            <p className="text-slate-300 text-sm leading-relaxed">{item.desc}</p>
                         </div>
                     ))}
                 </div>
