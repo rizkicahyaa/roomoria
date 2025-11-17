@@ -100,6 +100,7 @@ const BookingForm: React.FC = () => {
                             <option value="Family Room">Family Room</option>
                             <option value="Superior Room">Superior Room</option>
                             <option value="Premium Suite">Premium Suite</option>
+                            <option value="Twin Room">Twin Room</option>
                         </select>
                     </div>
 
