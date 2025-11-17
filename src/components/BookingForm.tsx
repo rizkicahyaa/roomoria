@@ -92,7 +92,7 @@ const BookingForm: React.FC = () => {
                             name="roomType"
                             required
                             onChange={handleChange}
-                            className="mt-2 w-full bg-white/10 border border-white/20 rounded-2xl px-4 py-3 text-white focus:border-amber-300 outline-none"
+                            className="mt-2 w-full bg-white border border-amber-300 rounded-2xl px-4 py-3 text-slate-900 focus:border-amber-300 outline-none"
                         >
                             <option value="">Select a suite</option>
                             <option value="Deluxe Room">Deluxe Room</option>
